@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Pacientes</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+<h2>🧑 Gestión de Pacientes</h2>
+
+<form id="formPaciente">
+
+<div class="row">
+
+<div class="col-md-3">
+<input type="text" id="nombre" class="form-control" placeholder="Nombre" required>
+</div>
+
+<div class="col-md-3">
+<input type="email" id="correo" class="form-control" placeholder="Correo" required>
+</div>
+
+<div class="col-md-3">
+<input type="text" id="telefono" class="form-control" placeholder="Teléfono" required>
+</div>
+
+<div class="col-md-3">
+<button class="btn btn-primary w-100">
+Guardar
+</button>
+</div>
+
+</div>
+
+</form>
+
+<hr>
+
+<table class="table table-bordered">
+
+<thead class="table-primary">
+
+<tr>
+
+<th>ID</th>
+<th>Nombre</th>
+<th>Correo</th>
+<th>Teléfono</th>
+<th>Acciones</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tablaPacientes">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script src="/js/pacientes.js"></script>
+
+</body>
+
+</html>

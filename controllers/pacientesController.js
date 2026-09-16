@@ -2,28 +2,44 @@ const conexion = require("../config/conexion");
 
 // Obtener todos los pacientes
 exports.obtenerPacientes = (req, res) => {
+
     conexion.query("SELECT * FROM pacientes", (error, resultados) => {
+
         if (error) {
             return res.status(500).json(error);
         }
+
         res.json(resultados);
+
     });
+
 };
 
-// Registrar paciente
-exports.crearPaciente = (req, res) => {
-
-    const { nombre, apellido, correo, telefono, edad } = req.body;
-
-    const sql = `
-        INSERT INTO pacientes
-        (nombre, apellido, correo, telefono, edad)
-        VALUES (?, ?, ?, ?, ?)
-    `;
+// Obtener un paciente por ID
+exports.obtenerPaciente = (req, res) => {
 
     conexion.query(
-        sql,
-        [nombre, apellido, correo, telefono, edad],
+        "SELECT * FROM pacientes WHERE id = ?",
+        [req.params.id],
+        (error, resultados) => {
+
+            if (error) {
+                return res.status(500).json(error);
+            }
+
+            res.json(resultados);
+
+        }
+    );
+
+};
+
+// Crear paciente
+exports.crearPaciente = (req, res) => {
+
+    conexion.query(
+        "INSERT INTO pacientes SET ?",
+        req.body,
         (error, resultado) => {
 
             if (error) {
@@ -31,7 +47,8 @@ exports.crearPaciente = (req, res) => {
             }
 
             res.json({
-                mensaje: "Paciente registrado correctamente"
+                mensaje: "Paciente registrado correctamente",
+                id: resultado.insertId
             });
 
         }
@@ -42,19 +59,9 @@ exports.crearPaciente = (req, res) => {
 // Actualizar paciente
 exports.actualizarPaciente = (req, res) => {
 
-    const id = req.params.id;
-
-    const { nombre, apellido, correo, telefono, edad } = req.body;
-
-    const sql = `
-    UPDATE pacientes
-    SET nombre=?, apellido=?, correo=?, telefono=?, edad=?
-    WHERE id=?
-    `;
-
     conexion.query(
-        sql,
-        [nombre, apellido, correo, telefono, edad, id],
+        "UPDATE pacientes SET ? WHERE id = ?",
+        [req.body, req.params.id],
         (error) => {
 
             if (error) {
@@ -73,11 +80,9 @@ exports.actualizarPaciente = (req, res) => {
 // Eliminar paciente
 exports.eliminarPaciente = (req, res) => {
 
-    const id = req.params.id;
-
     conexion.query(
-        "DELETE FROM pacientes WHERE id=?",
-        [id],
+        "DELETE FROM pacientes WHERE id = ?",
+        [req.params.id],
         (error) => {
 
             if (error) {

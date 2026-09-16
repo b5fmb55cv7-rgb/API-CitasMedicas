@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Citas Médicas</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+<h2>📅 Gestión de Citas Médicas</h2>
+
+<form id="formCita">
+
+<div class="row g-3">
+
+<div class="col-md-2">
+<input type="number" id="paciente_id" class="form-control" placeholder="ID Paciente" required>
+</div>
+
+<div class="col-md-2">
+<input type="number" id="medico_id" class="form-control" placeholder="ID Médico" required>
+</div>
+
+<div class="col-md-2">
+<input type="number" id="consultorio_id" class="form-control" placeholder="ID Consultorio" required>
+</div>
+
+<div class="col-md-2">
+<input type="date" id="fecha" class="form-control" required>
+</div>
+
+<div class="col-md-2">
+<input type="time" id="hora" class="form-control" required>
+</div>
+
+<div class="col-md-2">
+<input type="text" id="estado" class="form-control" placeholder="Estado" required>
+</div>
+
+<div class="col-md-12">
+<button class="btn btn-primary w-100">
+Guardar Cita
+</button>
+</div>
+
+</div>
+
+</form>
+
+<hr>
+
+<table class="table table-bordered">
+
+<thead class="table-primary">
+
+<tr>
+
+<th>ID</th>
+<th>Paciente</th>
+<th>Médico</th>
+<th>Consultorio</th>
+<th>Fecha</th>
+<th>Hora</th>
+<th>Estado</th>
+<th>Acciones</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tablaCitas">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script src="/js/citas.js"></script>
+
+</body>
+
+</html>
