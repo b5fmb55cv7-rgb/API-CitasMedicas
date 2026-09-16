@@ -37,9 +37,19 @@ exports.obtenerPaciente = (req, res) => {
 // Crear paciente
 exports.crearPaciente = (req, res) => {
 
+    const paciente = {
+        nombre: req.body.nombre,
+        apellido: "Prueba",
+        documento: "00000000",
+        correo: req.body.correo || "prueba@gmail.com",
+        telefono: req.body.telefono || "0000000000",
+        direccion: "Bogotá",
+        edad: 20
+    };
+
     conexion.query(
         "INSERT INTO pacientes SET ?",
-        req.body,
+        paciente,
         (error, resultado) => {
 
             if (error) {
