@@ -42,10 +42,14 @@ formulario.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const paciente = {
-        nombre: nombre.value,
-        correo: correo.value,
-        telefono: telefono.value
-    };
+    nombre: nombre.value,
+    apellido: apellido.value,
+    documento: documento.value,
+    correo: correo.value,
+    telefono: telefono.value,
+    direccion: direccion.value,
+    edad: edad.value
+};
 
     if (idEditar == null) {
 
