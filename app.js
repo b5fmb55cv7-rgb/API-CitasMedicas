@@ -15,13 +15,18 @@ app.use("/api", require("./routes/usuarios"));
 app.use(express.static(path.join(__dirname, "public")));
 
 // Vistas
-app.use(express.static(path.join(__dirname, "views")));
+app.use("/vistas", express.static(path.join(__dirname, "views")));
 
 require("./config/conexion");
 
 // Ruta principal
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "login.html"));
+});
+
+// Página de pacientes
+app.get("/pacientes.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "pacientes.html"));
 });
 
 // Rutas pacientes
