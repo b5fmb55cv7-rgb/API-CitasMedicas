@@ -1,8 +1,8 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,10 +20,18 @@
 
 <form id="formPaciente">
 
-<div class="row">
+<div class="row g-2">
 
 <div class="col-md-3">
 <input type="text" id="nombre" class="form-control" placeholder="Nombre" required>
+</div>
+
+<div class="col-md-3">
+<input type="text" id="apellido" class="form-control" placeholder="Apellido" required>
+</div>
+
+<div class="col-md-3">
+<input type="text" id="documento" class="form-control" placeholder="Documento" required>
 </div>
 
 <div class="col-md-3">
@@ -32,6 +40,14 @@
 
 <div class="col-md-3">
 <input type="text" id="telefono" class="form-control" placeholder="Teléfono" required>
+</div>
+
+<div class="col-md-3">
+<input type="text" id="direccion" class="form-control" placeholder="Dirección">
+</div>
+
+<div class="col-md-3">
+<input type="number" id="edad" class="form-control" placeholder="Edad" required>
 </div>
 
 <div class="col-md-3">
@@ -51,19 +67,16 @@ Guardar
 <thead class="table-primary">
 
 <tr>
-
 <th>ID</th>
 <th>Nombre</th>
 <th>Correo</th>
 <th>Teléfono</th>
 <th>Acciones</th>
-
 </tr>
 
 </thead>
 
 <tbody id="tablaPacientes">
-
 </tbody>
 
 </table>
@@ -75,3 +88,4 @@ Guardar
 </body>
 
 </html>
+```
