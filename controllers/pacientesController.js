@@ -39,12 +39,12 @@ exports.crearPaciente = (req, res) => {
 
     const paciente = {
         nombre: req.body.nombre,
-        apellido: "Prueba",
-        documento: "00000000",
-        correo: req.body.correo || "prueba@gmail.com",
-        telefono: req.body.telefono || "0000000000",
-        direccion: "Bogotá",
-        edad: 20
+        apellido: req.body.apellido,
+        documento: req.body.documento,
+        correo: req.body.correo,
+        telefono: req.body.telefono,
+        direccion: req.body.direccion,
+        edad: req.body.edad
     };
 
     conexion.query(

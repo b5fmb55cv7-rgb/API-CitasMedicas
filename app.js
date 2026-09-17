@@ -29,18 +29,47 @@ app.get("/pacientes.html", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "pacientes.html"));
 });
 
+// Página de médicos
+app.get("/medicos.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "medicos.html"));
+});
+
+// Página de consultorios
+app.get("/consultorios.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "consultorios.html"));
+});
+
+// Página de medicamentos
+app.get("/medicamentos.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "medicamentos.html"));
+});
+
+// Página de tratamientos
+app.get("/tratamientos.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "tratamientos.html"));
+});
+
+// Página de citas
+app.get("/citas.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "citas.html"));
+});
+
+// Página de usuarios
+app.get("/usuarios.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "usuarios.html"));
+});
+
 // Rutas pacientes
 app.use("/pacientes", require("./routes/pacientes"));
 
+// Rutas API
 app.use("/api/medicos", require("./routes/medicos"));
 app.use("/api/consultorios", require("./routes/consultorios"));
-// app.use("/api/medicamentos", require("./routes/medicamentos"));
+app.use("/api/medicamentos", require("./routes/medicamentos"));
 app.use("/api/tratamientos", require("./routes/tratamientos"));
 app.use("/api/citas", require("./routes/citas"));
 
 const PUERTO = process.env.PORT || 3000;
-
-
 
 app.listen(PUERTO, () => {
     console.log(`Servidor ejecutándose en el puerto ${PUERTO}`);

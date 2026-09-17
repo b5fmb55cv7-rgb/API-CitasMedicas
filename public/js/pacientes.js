@@ -10,17 +10,40 @@ async function cargarPacientes() {
 
     tabla.innerHTML = "";
 
+    // Crear header si no existe
+    if (!tabla.querySelector("thead")) {
+        const thead = document.createElement("thead");
+        thead.innerHTML = `
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Documento</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+            <th>Edad</th>
+            <th>Acciones</th>
+        </tr>
+        `;
+        tabla.parentElement.insertBefore(thead, tabla);
+    }
+
     pacientes.forEach(p => {
 
         tabla.innerHTML += `
         <tr>
             <td>${p.id}</td>
             <td>${p.nombre}</td>
+            <td>${p.apellido}</td>
+            <td>${p.documento}</td>
             <td>${p.correo}</td>
             <td>${p.telefono}</td>
+            <td>${p.direccion}</td>
+            <td>${p.edad}</td>
             <td>
                 <button class="btn btn-warning btn-sm"
-                onclick="editar(${p.id},'${p.nombre}','${p.correo}','${p.telefono}')">
+                onclick="editar(${p.id},'${p.nombre}','${p.apellido}','${p.documento}','${p.correo}','${p.telefono}','${p.direccion}',${p.edad})">
                 Editar
                 </button>
 
@@ -42,14 +65,14 @@ formulario.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const paciente = {
-    nombre: nombre.value,
-    apellido: apellido.value,
-    documento: documento.value,
-    correo: correo.value,
-    telefono: telefono.value,
-    direccion: direccion.value,
-    edad: edad.value
-};
+        nombre: nombre.value,
+        apellido: apellido.value,
+        documento: documento.value,
+        correo: correo.value,
+        telefono: telefono.value,
+        direccion: direccion.value,
+        edad: edad.value
+    };
 
     if (idEditar == null) {
 
@@ -75,13 +98,17 @@ formulario.addEventListener("submit", async (e) => {
 
 });
 
-function editar(id, nombreP, correoP, telefonoP) {
+function editar(id, nombreP, apellidoP, documentoP, correoP, telefonoP, direccionP, edadP) {
 
     idEditar = id;
 
     nombre.value = nombreP;
+    apellido.value = apellidoP;
+    documento.value = documentoP;
     correo.value = correoP;
     telefono.value = telefonoP;
+    direccion.value = direccionP;
+    edad.value = edadP;
 
 }
 
