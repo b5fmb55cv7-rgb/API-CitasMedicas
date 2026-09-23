@@ -24,6 +24,16 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "login.html"));
 });
 
+// Página de login
+app.get("/login.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "login.html"));
+});
+
+// Página del dashboard
+app.get("/dashboard.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "dashboard.html"));
+});
+
 // Página de pacientes
 app.get("/pacientes.html", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "pacientes.html"));
