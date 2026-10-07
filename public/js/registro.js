@@ -1,11 +1,26 @@
-fetch("/api/usuarios",{
+document.getElementById("formRegistro").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-method:"POST",
+    const nombre = document.getElementById("nombre").value;
+    const correo = document.getElementById("correo").value;
+    const password = document.getElementById("password").value;
 
-headers:{
-"Content-Type":"application/json"
-},
+    try {
+        const respuesta = await fetch("/api/usuarios", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ nombre, correo, password, rol: "paciente" })
+        });
 
-body:JSON.stringify(usuario)
+        const datos = await respuesta.json();
 
-})
+        if (respuesta.ok) {
+            alert("Cuenta creada correctamente. Ahora puedes iniciar sesión.");
+            window.location.href = "/login.html";
+        } else {
+            alert(datos.mensaje || "No se pudo crear la cuenta");
+        }
+    } catch (error) {
+        alert("Error de conexión con el servidor");
+    }
+});

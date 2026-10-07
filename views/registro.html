@@ -1,17 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Inicio de Sesión</title>
+<title>Registro de Usuario</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 <style>
@@ -46,53 +43,40 @@ color:#0d6efd;
 <div class="card">
 
 <h2>
-<i class="fa-solid fa-hospital"></i>
-Sistema de Citas Médicas
+<i class="fa-solid fa-user-plus"></i>
+Crear cuenta
 </h2>
 
-<form id="formLogin">
+<form id="formRegistro">
 
     <div class="mb-3">
+        <label>Nombre</label>
+        <input type="text" class="form-control" id="nombre" required>
+    </div>
 
+    <div class="mb-3">
         <label>Correo</label>
-
-        <input
-        type="email"
-        class="form-control"
-        id="correo"
-        required>
-
+        <input type="email" class="form-control" id="correo" required>
     </div>
 
     <div class="mb-3">
-
         <label>Contraseña</label>
-
-        <input
-        type="password"
-        class="form-control"
-        id="password"
-        required>
-
+        <input type="password" class="form-control" id="password" required>
     </div>
 
-    <button
-    type="submit"
-    class="btn btn-primary w-100">
-
-        Ingresar
-
+    <button type="submit" class="btn btn-primary w-100">
+        Registrarme
     </button>
-    
 
-</form>
- <p class="text-center mt-3">
-        <a href="/registro.html">¿No tienes cuenta? Regístrate aquí</a>
+    <p class="text-center mt-3">
+        <a href="/login.html">Ya tengo cuenta, iniciar sesión</a>
     </p>
 
+</form>
 
+</div>
 
-<script src="/js/login.js"></script>
+<script src="/js/registro.js"></script>
 
 </body>
 

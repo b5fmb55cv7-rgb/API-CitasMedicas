@@ -64,6 +64,11 @@ app.get("/citas.html", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "citas.html"));
 });
 
+// Página de registro
+app.get("/registro.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "registro.html"));
+});
+
 // Página de usuarios
 app.get("/usuarios.html", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "usuarios.html"));
