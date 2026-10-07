@@ -10,7 +10,7 @@ document.getElementById("formRegistro").addEventListener("submit", async (e) => 
         const respuesta = await fetch("/api/usuarios", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ nombre, correo, password })
+            body: JSON.stringify({ nombre, correo, password, rol })
         });
 
         const datos = await respuesta.json();
